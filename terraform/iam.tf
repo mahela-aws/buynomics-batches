@@ -1,7 +1,3 @@
-provider "aws" {
-  region = "us-east-1"
-}
-
 resource "aws_iam_role" "aws_batch_service_role" {
   name = "aws_batch_service_role"
 
