@@ -13,7 +13,7 @@ resource "aws_batch_compute_environment" "bn_compute_environment" {
     ]
 
     subnets = [
-      aws_default_subnet.default_subnet.id
+      aws_subnet.private_subnet.id
     ]
 
     type = var.compute_environment_compute_resource_type
@@ -45,7 +45,7 @@ resource "aws_batch_job_definition" "bn_job_definition" {
   container_properties = <<CONTAINER_PROPERTIES
 {
     "command": ["ls", "-la"],
-    "image": "${var.image_uri}",
+    "image": "amazonlinux",
     "resourceRequirements": [
     {"type": "VCPU", "value": "${var.container_properties_vcpus}"},
     {"type": "MEMORY", "value": "${var.container_properties_memory}"}

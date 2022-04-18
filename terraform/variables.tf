@@ -1,8 +1,3 @@
-variable "image_uri" {
-  description = "Docker image uri."
-  type        = string
-}
-
 variable "compute_environment_name" {
   description = "Batch compute environment name."
   type        = string
@@ -73,4 +68,10 @@ variable "container_properties_log_driver" {
   description = "Container properties log driver."
   type        = string
   default     = "awslogs"
+}
+
+variable "private_subnet_cidr_block" {
+  description = "cidr block for the private subnet"
+  type        = string
+  default = "172.31.128.0/20"
 }
